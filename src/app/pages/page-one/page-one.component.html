@@ -1,0 +1,38 @@
+<div class="flex-container">
+  <div class="header" [style.background-color]="selectedColor">
+    <p>HEADER</p>
+  </div>
+  <div class="middle">
+    <div class="form-container">
+      <div class="menu-item-list">
+        <button class="menu-item" *ngFor="let item of menuItems"
+                (click)="selectColor(item)" [style.background-color]="item">
+          MENU ITEM
+        </button>
+      </div>
+      <form [formGroup]="form" class="form">
+        <div class="form-title">TITLE</div>
+        <input type="text" placeholder="TEXT FORM FIELD 1" class="form-input" formControlName="textFormField1">
+        <input type="text" placeholder="TEXT FORM FIELD 2" class="form-input" formControlName="textFormField2">
+        <input type="text" placeholder="TEXT FORM FIELD 3" class="form-input" formControlName="textFormField3">
+        <input type="text" placeholder="TEXT FORM FIELD 4" class="form-input" formControlName="textFormField4">
+        <div class="btn-container">
+          <button [style.background-color]="selectedColor" class="form-btn" [disabled]="isFormEmpty"
+                  [class.disabled]="isFormEmpty" (click)="reset()">RESET
+            BUTTON
+          </button>
+          <button [style.background-color]="selectedColor" class="form-btn" [disabled]="form.invalid"
+                  [class.disabled]="form.invalid" (click)="submit()">SUBMIT
+            BUTTON
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="sidebar" id="sidebar">
+      SIDEBAR
+    </div>
+  </div>
+  <div class="footer" [style.background-color]="selectedColor">
+    <p>FOOTER</p>
+  </div>
+</div>
